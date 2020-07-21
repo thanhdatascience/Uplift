@@ -73,13 +73,13 @@ namespace Uplift.DataAccess.Data.Repository
 
         public void Remove(int Id)
         {
-            T entityToRemove = Get(Id);
+            T entityToRemove = dbSet.Find(Id);
             Remove(entityToRemove);
         }
 
         public void Remove(T entity)
         {
-            Remove(entity);
+            dbSet.Remove(entity);
         }
     }
 }
