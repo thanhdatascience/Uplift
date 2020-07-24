@@ -10,8 +10,8 @@ using Uplift.DataAccess.Data;
 namespace Uplift.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200722101117_AddingFrequencyModel")]
-    partial class AddingFrequencyModel
+    [Migration("20200724035945_categoryAndFrequency")]
+    partial class categoryAndFrequency
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
