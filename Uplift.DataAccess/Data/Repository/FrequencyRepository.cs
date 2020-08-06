@@ -20,7 +20,11 @@ namespace Uplift.DataAccess.Data.Repository
         }
         public IEnumerable<SelectListItem> GetFrequencyListForDropDown()
         {
-            throw new NotImplementedException();
+            return _db.Frequency.Select(i => new SelectListItem()
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
         }
 
         public void Update(Frequency frequency)
@@ -34,10 +38,6 @@ namespace Uplift.DataAccess.Data.Repository
             }
 
             _db.SaveChanges();
-
-
         }
-
-       
     }
 }

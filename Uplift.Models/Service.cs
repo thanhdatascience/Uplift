@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Uplift.Models
@@ -23,6 +24,19 @@ namespace Uplift.Models
         [DataType(DataType.ImageUrl)]
         [Display(Name ="Image")]
         public string ImageUrl { get; set; }
+
+        [Required]
+        public int CategoryId { get; set; }
+
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
+
+        [Required]
+        public int FrequencyId { get; set; }
+
+        [ForeignKey("FrequencyId")]
+        public Frequency Frequency { get; set; }
+
 
 
 

@@ -34,11 +34,17 @@ namespace Uplift
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders()
-              .AddDefaultUI();
+                .AddDefaultTokenProviders();
+              //.AddDefaultUI();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews().AddNewtonsoftJson().AddRazorRuntimeCompilation();
             services.AddRazorPages();
 
@@ -71,9 +77,9 @@ namespace Uplift
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
-
+            
             app.UseAuthentication();
             app.UseAuthorization();
 
