@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200724035728_categoryAndFrequency.cs" />
     <Compile Remove="Migrations\20200724035728_categoryAndFrequency.Designer.cs" />
+    <Compile Remove="Migrations\20200806063420_AddOrderHeaderAndOrderDetail.cs" />
+    <Compile Remove="Migrations\20200806063420_AddOrderHeaderAndOrderDetail.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
